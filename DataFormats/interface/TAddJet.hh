@@ -21,8 +21,10 @@ namespace baconhep
       sj4_pt(0), sj4_eta(0), sj4_phi(0), sj4_m(0), sj4_csv(-2), sj4_qgid(-2), sj4_q(-100),
       pullAngle(0),
       nTracks(0),
+      track_decayLengthTau(-1), track_distTauAxis(-1),
       trackSip3dSig_3(-50), trackSip3dSig_2(-50), trackSip3dSig_1(-50), trackSip3dSig_0(-50),
-      trackSip2dSigAboveCharm(-19), trackSip2dSigAboveBottom(-19),
+      trackSip2dSigAboveCharm_0(-19), trackSip2dSigAboveBottom_0(-19),
+      trackSip2dSigAboveCharm_1(-19), trackSip2dSigAboveBottom_1(-19),
       tau1_trackSip3dSig_0(-50), tau1_trackSip3dSig_1(-50),
       nSV(0),
       tau_SVmass_nSecondaryVertices(0), tau_SVmass_flightDistance2dSig(-1),
@@ -56,8 +58,10 @@ namespace baconhep
      
       // single b tagger info
       float nTracks;                                                            // Number of tracks associated to the jet
+      float track_decayLengthTau, track_distTauAxis;                            // For optimization of tracking parameters
       float trackSip3dSig_3, trackSip3dSig_2, trackSip3dSig_1, trackSip3dSig_0; // 3D SIP (IP value/error) for the most displaced tracks associated to the jet
-      float trackSip2dSigAboveCharm, trackSip2dSigAboveBottom;                  // 2D SIP of the first tracks that raises the Mass above the bottom (charm) threshold 5.2GeV (1.5GeV)
+      float trackSip2dSigAboveCharm_0, trackSip2dSigAboveBottom_0;              // 2D SIP of the first tracks that raises the Mass above the bottom (charm) threshold 5.2GeV (1.5GeV)
+      float trackSip2dSigAboveCharm_1, trackSip2dSigAboveBottom_1;
       float tau1_trackSip3dSig_0, tau1_trackSip3dSig_1;                         // 3D SIP of the two tracks with the highest SIP associated to the closest tau axis to the track
       float nSV;
 
@@ -74,6 +78,11 @@ namespace baconhep
       float tau_SVfd_trackEtaRel_2, tau_SVfd_trackEtaRel_1, tau_SVfd_trackEtaRel_0;
       float tau_SVfd_vertexEnergyRatio, tau_SVfd_vertexMass, tau_SVfd_vertexMass_corrected;
       float tau_SVfd_zratio;
+
+      // soft letpon 
+      //float PFMuon_pt, PFMuon_eta, PFMuon_phi, PFMuon_ptRel, PFMuon_ratio, PFMuon_ratioRel, PFMuon_deltaR, PFMuon_IP, PFMuon_IP2D;
+      //float PFMuon_nMuHit, PFMuon_nTkHit, PFMuon_nPixHit, PFMuon_nOutHit, PFMuon_nTkLwM, PFMuon_nPixLwM, PFMuon_nMatched, PFMuon_chi2, PFMuon_chi2Tk, PFMuon_isGlobal, PFMuon_dz;
+      //float PFElectron_pt, PFElectron_eta, PFElectron_phi, PFElectron_ptRel, PFElectron_ratio, PFElectron_ratioRel, PFElectron_deltaR, PFElectron_IP, PFElectron_IP2D;
 
       // top tagger info
       unsigned int topTagType;

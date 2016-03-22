@@ -53,7 +53,9 @@ namespace baconhep
       tau_SVfd1_vertexEnergyRatio(-1), tau_SVfd1_vertexMass(-1), tau_SVfd1_vertexMass_corrected(-1),
       tau_SVfd1_zratio(-5),
       nSM(0),nSE(0),
-      PFMuon_nMuHit(0), PFMuon_nTkHit(0), PFMuon_nPixHit(0), PFMuon_nOutHit(0), PFMuon_nTkLwM(0), PFMuon_nPixLwM(0), PFMuon_nMatched(0), PFMuon_chi2(99), PFMuon_chi2Tk(99), PFMuon_isGlobal(0), PFMuon_dz(99),
+      PFMuon_pt(-1), PFMuon_eta(-1), PFMuon_phi(-1), PFMuon_ptRel(-1), PFMuon_ratio(-1), PFMuon_ratioRel(-1), PFMuon_deltaR(-1), PFMuon_IP(-1), PFMuon_IP2D(-1),
+      PFMuon_nMuHit(-1), PFMuon_nTkHit(-1), PFMuon_nPixHit(-1), PFMuon_nOutHit(-1), PFMuon_nTkLwM(-1), PFMuon_nPixLwM(-1), PFMuon_nMatched(-1), PFMuon_chi2(99), PFMuon_chi2Tk(99), PFMuon_isGlobal(-1), PFMuon_dz(99),
+      PFElectron_pt(-1), PFElectron_eta(-1), PFElectron_phi(-1), PFElectron_ptRel(-1), PFElectron_ratio(-1), PFElectron_ratioRel(-1), PFElectron_deltaR(-1), PFElectron_IP(-1), PFElectron_IP2D(-1),
       topTagType(0), top_n_subjets(0), top_m_min(0), top_m_123(0), top_fRec(0),topchi2(0)
       {}
       ~TAddJet(){}

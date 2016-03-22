@@ -26,17 +26,34 @@ namespace baconhep
       trackSip2dSigAboveCharm_0(-19), trackSip2dSigAboveBottom_0(-19),
       trackSip2dSigAboveCharm_1(-19), trackSip2dSigAboveBottom_1(-19),
       tau1_trackSip3dSig_0(-50), tau1_trackSip3dSig_1(-50),
+      trackSip3dSig_3_1(-50), trackSip3dSig_2_1(-50), trackSip3dSig_1_1(-50), trackSip3dSig_0_1(-50),
+      tau1_trackSip3dSig_0_1(-50), tau1_trackSip3dSig_1_1(-50),
+      trackSip3dSig_3_2(-50), trackSip3dSig_2_2(-50), trackSip3dSig_1_2(-50), trackSip3dSig_0_2(-50),
+      tau1_trackSip3dSig_0_2(-50), tau1_trackSip3dSig_1_2(-50),
+      trackSip3dSig_3_3(-50), trackSip3dSig_2_3(-50), trackSip3dSig_1_3(-50), trackSip3dSig_0_3(-50),
+      tau1_trackSip3dSig_0_3(-50), tau1_trackSip3dSig_1_3(-50),
       nSV(0),
-      tau_SVmass_nSecondaryVertices(0), tau_SVmass_flightDistance2dSig(-1),
-      tau_SVmass_vertexDeltaR(-1), tau_SVmass_vertexNTracks(0),
-      tau_SVmass_trackEtaRel_2(-1), tau_SVmass_trackEtaRel_1(-1), tau_SVmass_trackEtaRel_0(-1),
-      tau_SVmass_vertexEnergyRatio(-1), tau_SVmass_vertexMass(-1), tau_SVmass_vertexMass_corrected(-1),
-      tau_SVmass_zratio(-5),
-      tau_SVfd_nSecondaryVertices(0), tau_SVfd_flightDistance2dSig(-1),
-      tau_SVfd_vertexDeltaR(-1), tau_SVfd_vertexNTracks(0),
-      tau_SVfd_trackEtaRel_2(-1), tau_SVfd_trackEtaRel_1(-1), tau_SVfd_trackEtaRel_0(-1),
-      tau_SVfd_vertexEnergyRatio(-1), tau_SVfd_vertexMass(-1), tau_SVfd_vertexMass_corrected(-1),
-      tau_SVfd_zratio(-5),
+      tau_SVmass0_nSecondaryVertices(0), tau_SVmass0_flightDistance2dSig(-1),
+      tau_SVmass0_vertexDeltaR(-1), tau_SVmass0_vertexNTracks(0),
+      tau_SVmass0_trackEtaRel_2(-1), tau_SVmass0_trackEtaRel_1(-1), tau_SVmass0_trackEtaRel_0(-1),
+      tau_SVmass0_vertexEnergyRatio(-1), tau_SVmass0_vertexMass(-1), tau_SVmass0_vertexMass_corrected(-1),
+      tau_SVmass0_zratio(-5),
+      tau_SVmass1_nSecondaryVertices(0), tau_SVmass1_flightDistance2dSig(-1),
+      tau_SVmass1_vertexDeltaR(-1), tau_SVmass1_vertexNTracks(0),
+      tau_SVmass1_trackEtaRel_2(-1), tau_SVmass1_trackEtaRel_1(-1), tau_SVmass1_trackEtaRel_0(-1),
+      tau_SVmass1_vertexEnergyRatio(-1), tau_SVmass1_vertexMass(-1), tau_SVmass1_vertexMass_corrected(-1),
+      tau_SVmass1_zratio(-5),
+      tau_SVfd0_nSecondaryVertices(0), tau_SVfd0_flightDistance2dSig(-1),
+      tau_SVfd0_vertexDeltaR(-1), tau_SVfd0_vertexNTracks(0),
+      tau_SVfd0_trackEtaRel_2(-1), tau_SVfd0_trackEtaRel_1(-1), tau_SVfd0_trackEtaRel_0(-1),
+      tau_SVfd0_vertexEnergyRatio(-1), tau_SVfd0_vertexMass(-1), tau_SVfd0_vertexMass_corrected(-1),
+      tau_SVfd0_zratio(-5),
+      tau_SVfd1_vertexDeltaR(-1), tau_SVfd1_vertexNTracks(0),
+      tau_SVfd1_trackEtaRel_2(-1), tau_SVfd1_trackEtaRel_1(-1), tau_SVfd1_trackEtaRel_0(-1),
+      tau_SVfd1_vertexEnergyRatio(-1), tau_SVfd1_vertexMass(-1), tau_SVfd1_vertexMass_corrected(-1),
+      tau_SVfd1_zratio(-5),
+      nSM(0),nSE(0),
+      PFMuon_nMuHit(0), PFMuon_nTkHit(0), PFMuon_nPixHit(0), PFMuon_nOutHit(0), PFMuon_nTkLwM(0), PFMuon_nPixLwM(0), PFMuon_nMatched(0), PFMuon_chi2(99), PFMuon_chi2Tk(99), PFMuon_isGlobal(0), PFMuon_dz(99),
       topTagType(0), top_n_subjets(0), top_m_min(0), top_m_123(0), top_fRec(0),topchi2(0)
       {}
       ~TAddJet(){}
@@ -60,29 +77,46 @@ namespace baconhep
       float nTracks;                                                            // Number of tracks associated to the jet
       float track_decayLengthTau, track_distTauAxis;                            // For optimization of tracking parameters
       float trackSip3dSig_3, trackSip3dSig_2, trackSip3dSig_1, trackSip3dSig_0; // 3D SIP (IP value/error) for the most displaced tracks associated to the jet
-      float trackSip2dSigAboveCharm_0, trackSip2dSigAboveBottom_0;              // 2D SIP of the first tracks that raises the Mass above the bottom (charm) threshold 5.2GeV (1.5GeV)
+      float trackSip2dSigAboveCharm_0, trackSip2dSigAboveBottom_0;              // 2D SIP of the first two tracks that raises the Mass above the bottom (charm) threshold 5.2GeV (1.5GeV)
       float trackSip2dSigAboveCharm_1, trackSip2dSigAboveBottom_1;
       float tau1_trackSip3dSig_0, tau1_trackSip3dSig_1;                         // 3D SIP of the two tracks with the highest SIP associated to the closest tau axis to the track
+      float trackSip3dSig_3_1, trackSip3dSig_2_1, trackSip3dSig_1_1, trackSip3dSig_0_1;
+      float tau1_trackSip3dSig_0_1, tau1_trackSip3dSig_1_1;
+      float trackSip3dSig_3_2, trackSip3dSig_2_2, trackSip3dSig_1_2, trackSip3dSig_0_2;
+      float tau1_trackSip3dSig_0_2, tau1_trackSip3dSig_1_2;
+      float trackSip3dSig_3_3, trackSip3dSig_2_3, trackSip3dSig_1_3, trackSip3dSig_0_3;
+      float tau1_trackSip3dSig_0_3, tau1_trackSip3dSig_1_3;
       float nSV;
 
-      // "leading" SV in mass
-      float tau_SVmass_nSecondaryVertices, tau_SVmass_flightDistance2dSig;                        // Number of SVs (cross check), 2D flight distance significance
-      float tau_SVmass_vertexDeltaR, tau_SVmass_vertexNTracks;                                    // DeltaR between the secondary vertex flight direction and the jet axis
-      float tau_SVmass_trackEtaRel_2, tau_SVmass_trackEtaRel_1, tau_SVmass_trackEtaRel_0;         // Pseudorapidity of the tracks at the vertex with respect to the tau axis closest to the leading SV in mass
-      float tau_SVmass_vertexEnergyRatio, tau_SVmass_vertexMass, tau_SVmass_vertexMass_corrected; // Energy ratio and vertexMass
-      float tau_SVmass_zratio;                                                                    // z-ratio
+      // "Leading" SV in mass
+      float tau_SVmass0_nSecondaryVertices, tau_SVmass0_flightDistance2dSig;                         // Number of SVs (cross check), 2D flight distance significance
+      float tau_SVmass0_vertexDeltaR, tau_SVmass0_vertexNTracks;                                     // DeltaR between the secondary vertex flight direction and the jet axis
+      float tau_SVmass0_trackEtaRel_2, tau_SVmass0_trackEtaRel_1, tau_SVmass0_trackEtaRel_0;         // Pseudorapidity of the tracks at the vertex with respect to the tau axis closest to the leading SV in mass
+      float tau_SVmass0_vertexEnergyRatio, tau_SVmass0_vertexMass, tau_SVmass0_vertexMass_corrected; // Energy ratio and vertexMass
+      float tau_SVmass0_zratio;                                                                      // z-ratio
+      float tau_SVmass1_nSecondaryVertices, tau_SVmass1_flightDistance2dSig;
+      float tau_SVmass1_vertexDeltaR, tau_SVmass1_vertexNTracks;
+      float tau_SVmass1_trackEtaRel_2, tau_SVmass1_trackEtaRel_1, tau_SVmass1_trackEtaRel_0;
+      float tau_SVmass1_vertexEnergyRatio, tau_SVmass1_vertexMass, tau_SVmass1_vertexMass_corrected;
+      float tau_SVmass1_zratio; 
 
       // "leading" SV in flight distance error
-      float tau_SVfd_nSecondaryVertices, tau_SVfd_flightDistance2dSig;
-      float tau_SVfd_vertexDeltaR, tau_SVfd_vertexNTracks;
-      float tau_SVfd_trackEtaRel_2, tau_SVfd_trackEtaRel_1, tau_SVfd_trackEtaRel_0;
-      float tau_SVfd_vertexEnergyRatio, tau_SVfd_vertexMass, tau_SVfd_vertexMass_corrected;
-      float tau_SVfd_zratio;
+      float tau_SVfd0_nSecondaryVertices, tau_SVfd0_flightDistance2dSig;
+      float tau_SVfd0_vertexDeltaR, tau_SVfd0_vertexNTracks;
+      float tau_SVfd0_trackEtaRel_2, tau_SVfd0_trackEtaRel_1, tau_SVfd0_trackEtaRel_0;
+      float tau_SVfd0_vertexEnergyRatio, tau_SVfd0_vertexMass, tau_SVfd0_vertexMass_corrected;
+      float tau_SVfd0_zratio;
+      float tau_SVfd1_nSecondaryVertices, tau_SVfd1_flightDistance2dSig;
+      float tau_SVfd1_vertexDeltaR, tau_SVfd1_vertexNTracks;
+      float tau_SVfd1_trackEtaRel_2, tau_SVfd1_trackEtaRel_1, tau_SVfd1_trackEtaRel_0;
+      float tau_SVfd1_vertexEnergyRatio, tau_SVfd1_vertexMass, tau_SVfd1_vertexMass_corrected;
+      float tau_SVfd1_zratio;
 
-      // soft letpon 
-      //float PFMuon_pt, PFMuon_eta, PFMuon_phi, PFMuon_ptRel, PFMuon_ratio, PFMuon_ratioRel, PFMuon_deltaR, PFMuon_IP, PFMuon_IP2D;
-      //float PFMuon_nMuHit, PFMuon_nTkHit, PFMuon_nPixHit, PFMuon_nOutHit, PFMuon_nTkLwM, PFMuon_nPixLwM, PFMuon_nMatched, PFMuon_chi2, PFMuon_chi2Tk, PFMuon_isGlobal, PFMuon_dz;
-      //float PFElectron_pt, PFElectron_eta, PFElectron_phi, PFElectron_ptRel, PFElectron_ratio, PFElectron_ratioRel, PFElectron_deltaR, PFElectron_IP, PFElectron_IP2D;
+      // soft letpon
+      float nSM,nSE;
+      float PFMuon_pt, PFMuon_eta, PFMuon_phi, PFMuon_ptRel, PFMuon_ratio, PFMuon_ratioRel, PFMuon_deltaR, PFMuon_IP, PFMuon_IP2D;
+      float PFMuon_nMuHit, PFMuon_nTkHit, PFMuon_nPixHit, PFMuon_nOutHit, PFMuon_nTkLwM, PFMuon_nPixLwM, PFMuon_nMatched, PFMuon_chi2, PFMuon_chi2Tk, PFMuon_isGlobal, PFMuon_dz;
+      float PFElectron_pt, PFElectron_eta, PFElectron_phi, PFElectron_ptRel, PFElectron_ratio, PFElectron_ratioRel, PFElectron_deltaR, PFElectron_IP, PFElectron_IP2D;
 
       // top tagger info
       unsigned int topTagType;
